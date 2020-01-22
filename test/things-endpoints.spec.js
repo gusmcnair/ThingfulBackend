@@ -69,8 +69,8 @@ describe('Things Endpoints', function() {
         return helpers.seedMaliciousThing(
           db,
           testUser,
-          maliciousThing,
         )
+        helpers.seedUsers(db, testUsers)
       })
 
       it('removes XSS attack content', () => {

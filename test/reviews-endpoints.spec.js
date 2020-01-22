@@ -40,13 +40,13 @@ describe('Reviews Endpoints', function() {
 
   afterEach('cleanup', () => helpers.cleanTables(db))
 
-  describe('protected endpoints', () => {
+  describe.only('protected endpoints', () => {
     beforeEach('insert things', () => {
       helpers.seedThingsTables(
         db,
         testThings,
-        testUsers,
-      ) 
+      );
+      helpers.seedUsers(db, testUsers)
     })
 
   protectedEndpoints.forEach(endpoint => {   
@@ -84,16 +84,16 @@ describe('Reviews Endpoints', function() {
   })
 })
 
-  describe(`POST /api/reviews`, () => {
+  describe.only(`POST /api/reviews`, () => {
 
 
-    beforeEach('insert things', () =>
+    beforeEach('insert things', () => {
       helpers.seedThingsTables(
         db,
-        testUsers,
         testThings,
-      )
-    )
+      );
+      helpers.seedUsers(db, testUsers)
+    })
 
     it(`responds 401 'unauthorized request' when invalid password`, () => {
       const userInvalidPass = { user_name: testUsers[0].user_name, password: 'wrong'}
