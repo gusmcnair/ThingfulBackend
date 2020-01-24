@@ -40,7 +40,7 @@ describe('Reviews Endpoints', function() {
 
   afterEach('cleanup', () => helpers.cleanTables(db))
 
-  describe.only('protected endpoints', () => {
+  describe('protected endpoints', () => {
     beforeEach('insert things', () => {
       helpers.seedThingsTables(
         db,
@@ -84,7 +84,7 @@ describe('Reviews Endpoints', function() {
   })
 })
 
-  describe.only(`POST /api/reviews`, () => {
+  describe(`POST /api/reviews`, () => {
 
 
     beforeEach('insert things', () => {
